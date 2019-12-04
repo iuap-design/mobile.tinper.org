@@ -15,7 +15,7 @@ module.exports = (app) => {
 
 
   const static = staticFiles(path.join(__dirname,'../../static'));
-  const tinperBee = staticFiles(path.join(__dirname,'../../tinper-bee'));
+  const tinperBee = staticFiles(path.join(__dirname,'../../componentsDemos'));
 
   app.use(static);
   app.use(tinperBee);

@@ -1,13 +1,10 @@
 const marked = require("marked");
 const fs = require('fs-extra');
 const path = require('path');
-const render = require('koa-ejs');
 const sidebar = require('../../static/sidebar.json');
-const axios = require('axios');
 const fetch = require('node-fetch');
-const components = require('../../static/components.json');
-const newComponent = require('../../static/new.json'); //有更新的组件
 const renderer = new marked.Renderer();
+const jsxRender = require('preact-render-to-string')
 
 renderer.heading = function (text, level) {
   if (level > 1) {
@@ -37,6 +34,11 @@ marked.setOptions({
   smartLists: true,
   smartypants: false
 });
+
+const docRouter = ['attention','changelog','compatibility','install',
+  'interact','summarize','quickStart','project','attention','pakage',
+  'participation','keyboard','multiport','international','theme','interact'
+]
 
 
 /**
@@ -81,8 +83,6 @@ async function getTinperThemeServer(url,option){
 // 官网react版本
 module.exports = {
   index: async (ctx, next) => {
-    let removeFeature = ['bee-complex-grid','bee-city-select']
-
     let tag = ctx.url.split('tag=')[1]; //版本号
     let component = ctx.params.component || 'summarize';
     let data = '';
@@ -90,49 +90,46 @@ module.exports = {
     let isComponentFlag = false; //是否是组件
     let rightMenus = {}; //右侧菜单
     let changeLog = []; //组件更新日志
-
-    if (component.indexOf('bee') != -1) {
-      rightMenus = components[component].menus;
-      changeLog = components[component].changeLog;
-      isComponentFlag = true;
-      filePath = path.join(__dirname, `../../tinper-bee/${component}/docs/api.md`);
+    if (docRouter.indexOf(component)==-1) {
+      filePath = path.join(__dirname, `../../componentsDemos/dist/${component}/doc.md`);
       data = await fs.readFileSync(filePath, 'utf-8');
-      let demo = '<h2 id="能力特性" class="">能力特性</h2><div id="tinperBeeDemo"></div>';
+      //1、获得demo 个数
+      let demos = fs.readdirSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/`));
+      let demoReg = /Demo[\w\W]+\.js/;
+      let demoStr = ''
+      demos.forEach((item)=>{
+          if(demoReg.test(item)){
+              demoStr += '<div class="demo-item">'
+              let code =  fs.readFileSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item}`),'utf-8');
+              let lessPath = path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item.replace('.js','.less')}`);
+              let less = ''
+              fs.exists(lessPath,(flag)=>{
+                  if(flag){
+                      less = fs.readFileSync(lessPath);
+                  }
+              })
+              let title = code.match(/@title(.{0,})/)?code.match(/@title(.{0,})/)[1]:'';//标题
+              let description = code.match(/@description(.{0,})/)?code.match(/@description(.{0,})/)[1]:'';//描述
+              demoStr+='<div class="demo-des"><div class="demo-des-title">'+title+'</div><div class="demo-des-des">'+description+'</div></div><div class="mobile-demo-left-title">js代码如下</div>'
+              +'<pre><code class="hljs javascript">'+jsxRender(code)+'</code></pre>';
+              if(less){
+                demoStr+='<div class="mobile-demo-left-title">less代码如下</div>'
+                +'<pre><code class="hljs javascript">'+less+'</code></pre>'
+              }
+              demoStr += '</div>'
+          }
+          
+      })
+     
+
+      let demo = '<h2 id="代码演示" class="">代码演示</h2><div class="demo-container"><div class="mobile-demo-left">'+demoStr+'</div></div>';
       data = data.replace(/##.*代码演示/, demo);
-      let pack_data = await fs.readFileSync(path.join(__dirname, "../../tinper-bee/" + component + "/package.json"));
-      if (pack_data) {
-        pack_data = JSON.parse(pack_data);
-        if (!pack_data) {
-          pack_data = {};
-        }
-      }
-      let tags = components[pack_data.name].versions;
-      let selectTag = tag ? tag : 'v' + pack_data.version;
-      let listStr = '<div class="u-select u-select-focused u-select-enabled tag-select" id="tagSelect"><div class="u-select-selection ' +
-        'u-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"> ' +
-        '<div class="u-select-selection-rendered" name="input"><div class="u-select-selection-selected-value" title="' + selectTag + '" style="display: block; opacity: 1;">' + selectTag + '</div>' +
-        '</div><span class="u-select-arrow" unselectable="unselectable" style="user-select: none;"><b></b></span></div></div>';
-      listStr += '<div id="tagList" class="select-list"><div><div class="u-select-dropdown nav-lang-select u-select-dropdown--single u-select-dropdown-placement-bottomLeft " style="width: 100px; "><div style="overflow: auto;">' +
-        '<ul class="u-select-dropdown-menu u-select-dropdown-menu-vertical  u-menu-light u-select-dropdown-menu-root" role="menu" aria-activedescendant="">';
-      tags.forEach(item => {
-        if (item == selectTag) {
-          listStr += '<li unselectable="unselectable" title="' + item + '" class="u-select-dropdown-menu-item-selected u-select-dropdown-menu-item" role="menuitem" aria-selected="true" style="user-select: none;">' + item + '</li> '
-        } else {
-          listStr += '<li unselectable="unselectable" title="' + item + '" class="u-select-dropdown-menu-item" role="menuitem" aria-selected="true" style="user-select: none;">' + item + '</li> '
-        }
-
-      });
-      listStr += '</ul></div></div></div></div>'
-
-      let name = components[pack_data.name].name;
+      
       let str =
         data.match(/#? \w+/g) && data.match(/#? \w+/g).length ?
         data.match(/#? \w+/g)[0] :
         "";
 
-      if(removeFeature.indexOf(component)!=-1){
-        str=`（一周后将转移到应用组件处展示，[请点击](https://design.yonyoucloud.com/tinper-acs/${component.replace('bee-','ac-')})）`
-      }
 
       data = data.replace(
         /#? \w+/,
@@ -140,12 +137,8 @@ module.exports = {
         "<a href='https://github.com/tinper-bee/" +
         component +
         "/edit/master/docs/api.md' class='pencil'  target='_blank' title='在github上编辑此页'><i class='uf uf-pencil-s' style='font-size: 20px;padding-left: 10px;'></i></a>" +
-        "<div class='title-right'>" +
-        "<a class='title-tag' href='https://github.com/iuap-design/tinper-bee/issues/new' target='_blank'><i class='uf uf-qm-c'></i><span>issue</span></a>" +
-        listStr +
-        "</div>"
+        "<div class='title-right'>"
       );
-
       
     } else if (component == 'changelog') {
       rightMenus = docsMenus[component].menus;
@@ -160,13 +153,12 @@ module.exports = {
     }
 
     data = marked(data);
+
     data = data
       .replace(/\<table/gi, '<div class="table-container">\n<table')
-      .replace(/<\/table>/gi, "</table>\n</div>\n");
+      .replace(/<\/table>/gi, "</table>\n</div>\n")
 
-
-      
-    let latestVersion = sidebar['更新日志']['version'];
+    // let latestVersion = sidebar['更新日志']['version'];
 
     await ctx.render('index', {
       sidebar: sidebar,
@@ -176,8 +168,8 @@ module.exports = {
       isComponent: isComponentFlag,
       rightMenus: rightMenus,
       changeLog: changeLog,
-      newComponent: newComponent, //有更新的组件
-      latestVersion: latestVersion
+      newComponent: [], //有更新的组件
+      latestVersion: '1.0.0'
     });
   },
   cliBuildScss: async(ctx, next) => {

@@ -15,8 +15,8 @@
     <link rel="icon" href="//design.yonyoucloud.com/static/tinper-bee/images/favicon.png" type="image/png"
         sizes="16x16">
     <link rel="stylesheet" href="//design.yonyoucloud.com/static/highlight/9.15.6/default.min.css">
-    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-bee/alpha/assets/tinper-bee.css"
-        rel="stylesheet" media="screen" />
+    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-bee/latest/assets/tinper-bee.css" rel="stylesheet" media="screen" />
+    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-mobile/antd-mobile/2.3.1/antd-mobile.css" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="//design.yonyoucloud.com/static/docSearch/docsearch.min.css" />
     <link rel="stylesheet" href="./css/atom-one-dark.css" type="text/css" />
     <link rel="stylesheet" href="./css/layout.css" type="text/css" />
@@ -24,12 +24,15 @@
     <link rel="stylesheet" href="./css/sidebar.css" type="text/css" />
     <link rel="stylesheet" href="./css/docs.css" type="text/css" />
     <link rel="stylesheet" href="./css/footer.css" type="text/css" />
-    <link rel="stylesheet" href="./css/rightMenus.css" type="text/css" />
+    
     <script type="text/javascript" src="//design.yonyoucloud.com/static/tinper-bee/js/yonyou-yyy.js"></script>
 </head>
 <script src="//design.yonyoucloud.com/static/highlight/9.15.6/highlight.min.js"></script>
-<script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react.production.min.js"></script>
-<script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react-dom.production.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react.development.js"></script>
+<script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react-dom.development.js"></script>
 <script src="//design.yonyoucloud.com/static/prop-types/15.6.0/prop-types.min.js"></script>
 <script src="//design.yonyoucloud.com/static/gumshoe/gumshoe.polyfills.min.js"></script>
 
@@ -71,7 +74,7 @@
     document.body.addEventListener('touchstart', function () { });
 
     // hljs.initHighlightingOnLoad();
-    document.querySelectorAll('.drawer-body code').forEach((block) => {
+    document.querySelectorAll('.mobile-demo-left code').forEach((block) => {
         hljs.highlightBlock(block);
     });
     docsearch({
@@ -83,17 +86,17 @@
 
 
     var header = document.querySelector('#navbar');
-    try {
-        new Gumshoe('#rightMenusId a', {
-            nested: true,
-            nestedClass: 'active-parent',
-            offset: function () {
-                return header.getBoundingClientRect().height;
-            }
-        });
-    } catch (error) {
+    // try {
+    //     new Gumshoe('#rightMenusId a', {
+    //         nested: true,
+    //         nestedClass: 'active-parent',
+    //         offset: function () {
+    //             return header.getBoundingClientRect().height;
+    //         }
+    //     });
+    // } catch (error) {
 
-    }
+    // }
 
 
     let lists = document.querySelectorAll('.rm-list-item');

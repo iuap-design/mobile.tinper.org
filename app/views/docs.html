@@ -1,10 +1,5 @@
-<% if(isComponent){ %>
-    <% if(tag) { %>
-        <link href="//design.yonyoucloud.com/static/tinper-bee/components/<%= active %>/dist/<%= tag %>/demo.css" type="text/css" rel="stylesheet" />
-    <% } else { %>
-        <link href="./<%= active %>/dist/demo.css" type="text/css" rel="stylesheet" />
-    <% } %> 
-<% } %>
+<link href="./dist/<%= active %>/demo.css" type="text/css" rel="stylesheet" />
+
 <div class="doc-content">
     <%- docs %>
     <div id="theme-app"></div>
@@ -13,21 +8,18 @@
         <% include changelog.html %>
     </div>
 </div>
+<div id="mobileDemo">
 
-<div class="right-menus">
-    <% include rightMenus.html %>
 </div>
 
+<!-- <div class="right-menus">
+    <% include rightMenus.html %>
+</div> -->
 
 
-<% if(isComponent){ %>
-    <% if(tag) { %>
-        <script src="//design.yonyoucloud.com/static/tinper-bee/components/<%= active %>/dist/<%= tag %>/demo.js"></script>
-    <% } else { %>
-        <script src="./<%= active %>/dist/demo.js"></script>
-    <% } %>     
-<% } %>
 
+<script src="./dist/<%= active %>/demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
 <script src="//iuap-design-cdn.oss-cn-beijing.aliyuncs.com/static/tinper-bee/theme/config.js"></script>
 <script async src="//www.googletagmanager.com/gtag/js?id=UA-109836800-1"></script>
 <script>

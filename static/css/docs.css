@@ -271,18 +271,18 @@ select::-ms-expand {
 
 
 .docs .doc-content{
-    margin-right: 200px;
+    margin-right: 400px;
 }
 
 /* 右侧导航菜单 */
-.docs .right-menus{
+/* .docs .right-menus{
     position: fixed;
     top: 95px;
     right: 20px;
     width: 200px;
     overflow: auto;
     height: calc(100% - 95px);
-}
+} */
 
 /* 更新日志 */
 .docs .doc-content .changelog .u-timeline-item-head-danger {
@@ -380,4 +380,55 @@ select::-ms-expand {
     .docs .doc-content{
         margin-right:0;
     }
+}
+
+#mobileDemo{
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 360px;
+    z-index: 3;
+    background: #fff;
+    max-height: 80%;
+    overflow: auto;
+    padding-bottom: 20px;
+    border: 1px solid #DFDFDF;
+    padding-top: 20px;
+}
+#mobileDemo .demo-item .demo-item-title{
+    text-align: center;
+}
+
+.docs .doc-content .demo-container{
+    
+}
+.docs .doc-content .demo-container .mobile-demo-left{
+    
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item{
+    background: #FAFAFA;
+    margin-bottom: 30px;
+    max-height: 300px;
+    overflow: auto;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item pre{
+    
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .demo-des{
+    background: #fff;
+    padding-bottom: 10px;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .demo-des .demo-des-title{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .demo-des .demo-des-des{
+    font-size: 14px;
+    font-weight: 500;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .mobile-demo-left-title{
+    padding-left: 20px;
+    font-size: 16px;
+    padding-top: 20px;
 }

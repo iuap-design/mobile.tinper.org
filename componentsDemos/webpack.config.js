@@ -31,7 +31,7 @@ module.exports = env => {
             rules: [
                 {
                     test: /\.js$/,
-                    use: "babel-loader"
+                    use: "babel-loader"               
                 },
                 {
                     test: /\.less$/,
