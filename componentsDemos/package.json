@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node writeIndex.js && webpack -p --env.mode=production",
-    "dev": "webpack -p && webpack-dev-server --open --env.mode=development"
+    "dev": "node writeIndex.js && webpack -p && webpack-dev-server --open --env.mode=development"
   },
   "keywords": [],
   "author": "",

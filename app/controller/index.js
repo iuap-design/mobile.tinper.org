@@ -133,11 +133,11 @@ module.exports = {
 
       data = data.replace(
         /#? \w+/,
-        str +
-        "<a href='https://github.com/tinper-bee/" +
-        component +
-        "/edit/master/docs/api.md' class='pencil'  target='_blank' title='在github上编辑此页'><i class='uf uf-pencil-s' style='font-size: 20px;padding-left: 10px;'></i></a>" +
-        "<div class='title-right'>"
+        str +component
+        // "<a href='https://github.com/tinper-bee/" +
+        //  +
+        // "/edit/master/docs/api.md' class='pencil'  target='_blank' title='在github上编辑此页'><i class='uf uf-pencil-s' style='font-size: 20px;padding-left: 10px;'></i></a>" +
+        // "<div class='title-right'>"
       );
       
     }  else {

@@ -159,19 +159,15 @@
                     "version": "0.1.3",
                     "component": "Button"
                 },
-                "手风琴 Accordion": {
-                    "version": "0.1.0",
-                    "component": "Accordion"
-                },
-                "SVG图标 SvgIcon": {
+                "图标 Icon": {
                     "version": "0.0.2",
-                    "component": "bee-svgicon"
+                    "component": "Icon"
                 }
             },
             "布局 Layout": {
                 "布局 Flex": {
                     "version": "0.1.3",
-                    "component": "flex"
+                    "component": "Flex"
                 },
                 "两翼留白 WingBlank": {
                     "version": "1.0.0",
@@ -201,6 +197,10 @@
                 }
             },
             "视图 View": {
+                "手风琴 Accordion": {
+                    "version": "0.1.0",
+                    "component": "Accordion"
+                },
                 "标记 Badge": {
                     "version": "0.1.3",
                     "component": "bee-badge"

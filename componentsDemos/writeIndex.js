@@ -1,3 +1,6 @@
+/**
+ * 将组件下的 demo 合并为 index.js ，并在组件下生成
+ */
 const path = require('path');
 const fs = require('fs-extra');
 const componentsPath = path.join(__dirname, `./src/`);
