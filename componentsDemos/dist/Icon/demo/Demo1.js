@@ -1,9 +1,6 @@
 import React from 'react'
 import { Icon, Grid } from 'antd-mobile';
 
-//@title 基础示例
-//@description 基本使用方式
-
 const list = [
   'check-circle', 'check', 'check-circle-o',
   'cross-circle', 'cross', 'cross-circle-o',
@@ -23,3 +20,6 @@ const Demo = () => {
 };
 
 export default Demo;
+
+//@title 基础示例
+//@description 基本使用方式

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-
 import { List, Badge } from 'antd-mobile';
-
-//@title 基础示例
-//@description 基本使用方式
 
 const BadgeDemo = () => (
   <List>
@@ -56,6 +52,7 @@ const BadgeDemo = () => (
   </List>
 );
 
-
-
 export default BadgeDemo;
+
+//@title 基础示例
+//@description 基本使用方式

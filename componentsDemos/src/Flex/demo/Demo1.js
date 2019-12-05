@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Flex, WhiteSpace } from 'antd-mobile';
 
-//@title 基础示例
-//@description 基本使用方式
-
-
 const PlaceHolder = ({ className = '', ...restProps }) => (
   <div className={`${className} placeholder`} {...restProps}>Block</div>
 );
@@ -30,7 +26,6 @@ const FlexExample = () => (
       <Flex.Item><PlaceHolder /></Flex.Item>
     </Flex>
     <WhiteSpace size="lg" />
-
     <div className="sub-title">Wrap</div>
     <Flex wrap="wrap">
       <PlaceHolder className="inline" />
@@ -42,7 +37,6 @@ const FlexExample = () => (
       <PlaceHolder className="inline" />
     </Flex>
     <WhiteSpace size="lg" />
-
     <div className="sub-title">Align</div>
     <Flex justify="center">
       <PlaceHolder className="inline" />
@@ -61,7 +55,6 @@ const FlexExample = () => (
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />
     </Flex>
-
     <WhiteSpace />
     <Flex align="start">
       <PlaceHolder className="inline" />
@@ -83,3 +76,6 @@ const FlexExample = () => (
   </div>
 );
 export default FlexExample;
+
+//@title 基础示例
+//@description 基本使用方式

@@ -1,9 +1,7 @@
+import React, { Component } from "react";
 import { Accordion, List } from 'antd-mobile';
 
-//@title 手风琴模式
-//@description 基本使用方式
-
-class AccordionExmple extends React.Component {
+class AccordionExmple extends Component {
   onChange = (key) => {
     console.log(key);
   }
@@ -29,3 +27,6 @@ class AccordionExmple extends React.Component {
 }
 
 export default AccordionExmple;
+
+//@title 手风琴模式
+//@description 基本使用方式

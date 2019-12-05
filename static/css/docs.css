@@ -434,7 +434,9 @@ select::-ms-expand {
     padding-bottom: 10px;
     padding-top: 10px;
 }
-
+#mobileDemo .demo-item pre code p{
+    margin: 0;
+}
 .docs .doc-content .demo-container{
     
 }

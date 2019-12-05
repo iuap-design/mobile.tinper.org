@@ -6,6 +6,7 @@
 
 - `//@title` 为demo标题，不可换行
 - `//@description` 为demo简单描述，不可换行
+- `//@title` 和 `//@description` 建议写到demojs最底部
 
 ## doc.md 规范
 
