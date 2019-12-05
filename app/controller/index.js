@@ -134,7 +134,7 @@ module.exports = {
 
       data = data.replace(
         /#? \w+/,
-        str +component
+        str 
         // "<a href='https://github.com/tinper-bee/" +
         //  +
         // "/edit/master/docs/api.md' class='pencil'  target='_blank' title='在github上编辑此页'><i class='uf uf-pencil-s' style='font-size: 20px;padding-left: 10px;'></i></a>" +

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
+console.log('哈哈哈哈哈')
 
 //@title 基础示例
 //@description 基本使用方式

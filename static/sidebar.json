@@ -203,7 +203,7 @@
                 },
                 "标记 Badge": {
                     "version": "0.1.3",
-                    "component": "bee-badge"
+                    "component": "Badge"
                 },
                 "标签 Tag": {
                     "version": "0.0.1",
