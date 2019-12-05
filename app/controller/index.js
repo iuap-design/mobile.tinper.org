@@ -85,6 +85,7 @@ module.exports = {
   index: async (ctx, next) => {
     let tag = ctx.url.split('tag=')[1]; //版本号
     let component = ctx.params.component || 'summarize';
+    console.log('log: '+new Date()+' 访问了 '+component);
     let data = '';
     let filePath = '';
     let isComponentFlag = false; //是否是组件
