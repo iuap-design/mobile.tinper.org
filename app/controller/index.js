@@ -91,6 +91,7 @@ module.exports = {
     let rightMenus = {}; //右侧菜单
     let changeLog = []; //组件更新日志
     if (docRouter.indexOf(component)==-1) {
+      isComponentFlag=true;
       filePath = path.join(__dirname, `../../componentsDemos/dist/${component}/doc.md`);
       data = await fs.readFileSync(filePath, 'utf-8');
       //1、获得demo 个数
@@ -103,11 +104,10 @@ module.exports = {
               let code =  fs.readFileSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item}`),'utf-8');
               let lessPath = path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item.replace('.js','.less')}`);
               let less = ''
-              fs.exists(lessPath,(flag)=>{
-                  if(flag){
-                      less = fs.readFileSync(lessPath);
-                  }
-              })
+              let flag = fs.existsSync(lessPath);
+              if(flag){
+                less = fs.readFileSync(lessPath,'utf-8');
+              }
               let title = code.match(/@title(.{0,})/)?code.match(/@title(.{0,})/)[1]:'';//标题
               let description = code.match(/@description(.{0,})/)?code.match(/@description(.{0,})/)[1]:'';//描述
               demoStr+='<div class="demo-des"><div class="demo-des-title">'+title+'</div><div class="demo-des-des">'+description+'</div></div><div class="mobile-demo-left-title">js代码如下</div>'
@@ -140,12 +140,7 @@ module.exports = {
         "<div class='title-right'>"
       );
       
-    } else if (component == 'changelog') {
-      rightMenus = docsMenus[component].menus;
-      changeLog = sidebar['更新日志'].changeLog;
-      filePath = path.join(__dirname, `../../docs/${component}.md`);
-      data = await fs.readFileSync(filePath, 'utf-8');
-    } else {
+    }  else {
       rightMenus = docsMenus[component].menus;
       changeLog = [];
       filePath = path.join(__dirname, `../../docs/${component}.md`);

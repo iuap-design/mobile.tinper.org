@@ -7,12 +7,12 @@ import { Accordion, List } from 'antd-mobile';
  */
 
 class AccordionExmple extends React.Component {
-//   onChange = (key) => {
-//     console.log(key);
-//   }
+  onChange = (key) => {
+    console.log(key);
+  }
   render() {
     return (
-      <div style={{ marginTop: 10, marginBottom: 10 }}>
+      <div style={{ marginTop: 10, marginBottom: 10 }} onChange={this.onChange}>
         <Accordion defaultActiveKey="0" className="my-accordion" >
           <Accordion.Panel header="Title 1">
             <List className="my-list">

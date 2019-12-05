@@ -1,23 +1,19 @@
 import React, { Component } from "react";
-import Demo1 from './demo/Demo1'
-import Demo2 from './demo/Demo2'
+import Demo1 from './demo/Demo1.js'
+import Demo2 from './demo/Demo2.js'
+import './demo/Demo1.less'
 
-class AccordionExmple extends React.Component {
+
+class Exmple extends React.Component {
 
   render() {
     return (
       <div className='demo'>
-        <div className='demo-item'>
-            <div className='demo-item-title'>基础示例1</div>
-            <Demo1/>
-        </div>
-        <div className='demo-item'>
-            <div className='demo-item-title'>基础示例2</div>
-            <Demo2/>
-        </div>
+        <div className='demo-item'><div className='demo-item-title'> 基础示例1</div><Demo1/></div>
+<div className='demo-item'><div className='demo-item-title'> 基础示例2</div><Demo2/></div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<AccordionExmple/>, document.getElementById('mobileDemo'));
+ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));

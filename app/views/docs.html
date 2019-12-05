@@ -1,4 +1,4 @@
-<link href="./dist/<%= active %>/demo.css" type="text/css" rel="stylesheet" />
+
 
 <div class="doc-content">
     <%- docs %>
@@ -8,18 +8,22 @@
         <% include changelog.html %>
     </div>
 </div>
-<div id="mobileDemo">
+<% if(isComponent){ %>
 
-</div>
+    <div id="mobileDemo">
+
+    </div>
+<% } %>
+
 
 <!-- <div class="right-menus">
     <% include rightMenus.html %>
 </div> -->
 
 
-
-<script src="./dist/<%= active %>/demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
+<% if(isComponent){ %>
+    <script src="./dist/<%= active %>/demo.js"></script>
+<% } %>
 <script src="//iuap-design-cdn.oss-cn-beijing.aliyuncs.com/static/tinper-bee/theme/config.js"></script>
 <script async src="//www.googletagmanager.com/gtag/js?id=UA-109836800-1"></script>
 <script>

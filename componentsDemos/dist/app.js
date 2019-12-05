@@ -23,8 +23,8 @@ class Sidebar extends Component{
         return (
             <Router>
                 <div className='demo-sidebar'>
-                    <Route exact path="/" component={ Accordion } />
-                    <Route path="/button" component={ Accordion } />
+                    <Route exact path="/" component={ Button } />
+                    {/* <Route path="/button" component={ Accordion } /> */}
                     {/* <Route path="/accordion" component={ Accordion } /> */}
                 </div>
             </Router>
