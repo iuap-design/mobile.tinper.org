@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { WhiteSpace } from 'antd-mobile';
 
+
+//@title 基础示例
+//@description 基本使用方式
+
 const PlaceHolder = ({ className = '', ...restProps }) => (
   <div className={`${className} placeholder`} {...restProps}>Block</div>
 );

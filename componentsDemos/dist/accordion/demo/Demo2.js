@@ -1,9 +1,7 @@
 import { Accordion, List } from 'antd-mobile';
 
-/**
- * @title 基础示例2
- * @description 基础示例2的描述
- */
+//@title 手风琴模式
+//@description 基本使用方式
 
 class AccordionExmple extends React.Component {
   onChange = (key) => {

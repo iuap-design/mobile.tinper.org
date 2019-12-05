@@ -110,6 +110,7 @@ module.exports = {
               }
               let title = code.match(/@title(.{0,})/)?code.match(/@title(.{0,})/)[1]:'';//标题
               let description = code.match(/@description(.{0,})/)?code.match(/@description(.{0,})/)[1]:'';//描述
+              code = code.replace('//@title'+title,'').replace('//@description'+description,'')
               demoStr+='<div class="demo-des"><div class="demo-des-title">'+title+'</div><div class="demo-des-des">'+description+'</div></div><div class="mobile-demo-left-title">js代码如下</div>'
               +'<pre><code class="hljs javascript">'+jsxRender(code)+'</code></pre>';
               if(less){

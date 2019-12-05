@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Accordion, List } from 'antd-mobile';
 
-/**
- * @title 基础示例1
- * @description 基础示例1的描述
- */
+//@title 基础示例
+//@description 基本使用方式
 
 class AccordionExmple extends React.Component {
   onChange = (key) => {

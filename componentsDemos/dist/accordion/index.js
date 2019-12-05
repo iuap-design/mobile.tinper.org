@@ -9,8 +9,8 @@ class Exmple extends React.Component {
   render() {
     return (
       <div className='demo'>
-        <div className='demo-item'><div className='demo-item-title'> 基础示例1</div><Demo1/></div>
-<div className='demo-item'><div className='demo-item-title'> 基础示例2</div><Demo2/></div>
+        <div className='demo-item'><div className='demo-item-title'> 基础示例</div><Demo1/></div>
+<div className='demo-item'><div className='demo-item-title'> 手风琴模式</div><Demo2/></div>
       </div>
     );
   }
