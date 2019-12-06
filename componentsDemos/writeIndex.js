@@ -8,7 +8,6 @@ const demoJsReg = /Demo[\w\W]+\.js/;
 const demoLessReg = /Demo[\w\W]+\.less/;
 
 
-
 let components = fs.readdirSync(componentsPath);
 components.forEach(component=>{
     let template = fs.readFileSync(path.join(__dirname, `./indexTemplate.js`),'utf-8');
@@ -26,7 +25,10 @@ components.forEach(component=>{
             }
             if(demoLessReg.test(it))demoLess.push(`import './demo/${it}'`);
         })
-        template=template.replace('importDemoJs',demoJs.join('\n')).replace('importDemoless',demoLess.join('\n')).replace('importDemoJsDom',demoJsDom.join('\n'));
+        template=template.replace('importDemoJs',demoJs.join('\n'))
+        .replace('importDemoless',demoLess.join('\n'))
+        .replace('importDemoJsDom',demoJsDom.join('\n'))
+        .replace('replaceENV',process.env.NODE_ENV=='development'?"export default Exmple;":"ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));")
         fs.writeFileSync(componentsPath+`${component}/index.js`,template)
         console.log(`✌️ 😀 ✌️ ${component} index.js 文件生成成功`)
     }

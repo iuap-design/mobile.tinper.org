@@ -1,21 +1,3 @@
-.demo-sidebar .link{
-    height: 40px;
-    padding-top: 5px;
-    position: fixed;
-    left: 0;
-    right: 500px;
-    top: 80px;
-    a{
-        display: inline-block;
-        width: 100px;
-        line-height: 30px;
-        text-align: center;
-        background: #cecece;
-        border: 1px solid #fff;
-    }
-} 
-
-
 .test-phone{
     position: fixed;
     right: 20px;

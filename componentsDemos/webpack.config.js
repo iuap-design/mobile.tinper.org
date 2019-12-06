@@ -32,14 +32,6 @@ module.exports = env => {
             chunkFilename: '[name]/demo.js',
             publicPath: '/'
         },
-        // devServer: {
-        //     port: 3000,
-        //     contentBase: path.join(__dirname, './dist'),
-        //     historyApiFallback: true,
-        //     host: '127.0.0.1',
-        //     hot: true,
-        //     open: true
-        // },
         module: {
             rules: [
                 {
@@ -124,7 +116,10 @@ module.exports = env => {
             new MiniCssExtractPlugin({
                 filename: '[name]/demo.css',
                 chunkFilename: '[name]/demo.css',
-            })
+            }),
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+          })
         ]
     }
 }

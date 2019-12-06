@@ -14,4 +14,4 @@ class Exmple extends React.Component {
   }
 }
 
-ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));
+replaceENV
