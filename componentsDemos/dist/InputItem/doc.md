@@ -68,8 +68,6 @@ import { InputItem } from 'antd-mobile';
 
 ## 注意事项
 
-注意：日期字符串在不同浏览器有不同的实现，例如 `new Date('2017-1-1')` 在 Safari 上是 Invalid Date，而在 Chrome 上是能正常解析的。
 
-注意：`DatePicker` children 建议是 `List.Item`, 如果不是，需要是自定义组件(组件内需处理 `onClick` / `extra` / `children` 属性，详情请看 [demo](https://mobile.ant.design/components/date-picker)
 
 ## 更新日志
