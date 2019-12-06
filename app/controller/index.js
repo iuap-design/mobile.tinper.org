@@ -91,6 +91,7 @@ module.exports = {
     let isComponentFlag = false; //是否是组件
     let rightMenus = {}; //右侧菜单
     let changeLog = []; //组件更新日志
+    let demoStr = ''
     if (docRouter.indexOf(component)==-1) {
       isComponentFlag=true;
       filePath = path.join(__dirname, `../../componentsDemos/dist/${component}/doc.md`);
@@ -98,7 +99,7 @@ module.exports = {
       //1、获得demo 个数
       let demos = fs.readdirSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/`));
       let demoReg = /Demo[\w\W]+\.js/;
-      let demoStr = ''
+      
       demos.forEach((item)=>{
           if(demoReg.test(item)){
               demoStr += '<div class="demo-item">'
@@ -124,7 +125,7 @@ module.exports = {
       })
      
 
-      let demo = '<h2 id="代码演示" class="">代码演示</h2><div class="demo-container"><div class="mobile-demo-left">'+demoStr+'</div></div>';
+      let demo = '<h2 id="代码演示" class="">代码演示</h2><div class="demo-container"><div class="mobile-demo-left">&&&&</div></div>';
       data = data.replace(/##.*代码演示/, demo);
       
       let str =
@@ -154,6 +155,7 @@ module.exports = {
     data = data
       .replace(/\<table/gi, '<div class="table-container">\n<table')
       .replace(/<\/table>/gi, "</table>\n</div>\n")
+      .replace('&&&&', demoStr)
 
     // let latestVersion = sidebar['更新日志']['version'];
 
