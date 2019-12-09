@@ -170,18 +170,5 @@ module.exports = {
       newComponent: [], //有更新的组件
       latestVersion: '1.0.0'
     });
-  },
-  cliBuildScss: async(ctx, next) => {
-    let option = {
-      method: 'post',
-      body:    JSON.stringify(ctx.request.body),
-      headers: { 'Content-Type': 'application/json' }
-    };
-    let data = await getTinperThemeServer("package",option);
-    console.log("--bee.tinper.org--- ",data);
-    ctx.response.body = data;
-  },
-  getVersion: async(ctx, next) => {
-    ctx.response.body = await getTinperThemeServer("version",{});
   }
 }
