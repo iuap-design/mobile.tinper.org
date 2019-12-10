@@ -229,6 +229,18 @@
                 }
             }, 50);
         }
+
+
+
+        //鼠标划过显示二维码
+        let qricon = document.getElementById('qricon');
+        let qrcode = document.getElementById('qrcode');
+        qricon.onmouseenter = function () {
+            qrcode.style.display = 'block';
+        }
+        qricon.onmouseleave = function () {
+            qrcode.style.display = 'none';
+        }
     }
 </script>
 

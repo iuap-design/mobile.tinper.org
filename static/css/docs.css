@@ -416,3 +416,14 @@ select::-ms-expand {
     font-size: 16px;
     padding-top: 20px;
 }
+#qricon{
+    margin-left: 10px;
+    position: relative;
+}
+#qrcode{
+    display: none;    
+    position: absolute;
+    left: -74px;
+    box-shadow: 0px 0px 4px #333333;
+    border-radius: 0;
+}

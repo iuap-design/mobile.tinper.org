@@ -4,7 +4,7 @@
   "description": "bee.tinper.org",
   "main": "server/index.js",
   "scripts": {
-    "getDemos":"node app/utils/downLoadDemos.js",
+    "getDemos": "node app/utils/downLoadDemos.js",
     "start": "node app/app.js"
   },
   "repository": {
@@ -45,6 +45,8 @@
     "node-fetch": "^2.3.0",
     "nunjucks": "^3.1.6",
     "preact": "^10.0.5",
-    "preact-render-to-string": "^5.1.1"
+    "preact-render-to-string": "^5.1.1",
+    "qr.js": "0.0.0",
+    "qrcode": "^1.4.4"
   }
 }

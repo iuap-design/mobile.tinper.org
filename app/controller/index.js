@@ -2,9 +2,9 @@ const marked = require("marked");
 const fs = require('fs-extra');
 const path = require('path');
 const sidebar = require('../../static/sidebar.json');
-const fetch = require('node-fetch');
 const renderer = new marked.Renderer();
-const jsxRender = require('preact-render-to-string')
+const jsxRender = require('preact-render-to-string');
+var QRCode = require('qrcode')
 
 renderer.heading = function (text, level) {
   if (level > 1) {
@@ -79,20 +79,20 @@ module.exports = {
     let isComponentFlag = false; //是否是组件
     let rightMenus = {}; //右侧菜单
     let changeLog = []; //组件更新日志
-    let demoStr = ''
+    let demoStr = '',iframeUrl='';
     if (docRouter.indexOf(component)==-1) {
       isComponentFlag=true;
-      filePath = path.join(__dirname, `../../componentsDemos/dist/${component}/doc.md`);
+      filePath = path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/doc.md`);
       data = await fs.readFileSync(filePath, 'utf-8');
       //1、获得demo 个数
-      let demos = fs.readdirSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/`));
+      let demos = fs.readdirSync(path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/demo/`));
       let demoReg = /Demo[\w\W]+\.js/;
       
       demos.forEach((item)=>{
           if(demoReg.test(item)){
               demoStr += '<div class="demo-item">'
-              let code =  fs.readFileSync(path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item}`),'utf-8');
-              let lessPath = path.join(__dirname, `../../componentsDemos/dist/${component}/demo/${item.replace('.js','.less')}`);
+              let code =  fs.readFileSync(path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/demo/${item}`),'utf-8');
+              let lessPath = path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/demo/${item.replace('.js','.less')}`);
               let less = ''
               let flag = fs.existsSync(lessPath);
               if(flag){
@@ -121,10 +121,12 @@ module.exports = {
         data.match(/#? \w+/g)[0] :
         "";
 
+      let iframeUrl = 'http://mobiledemo.dev.app.yyuap.com/'+component;
+      let generateQR = await QRCode.toDataURL(iframeUrl);
 
       data = data.replace(
         /#? \w+/,
-        str 
+        str+'<span class="qrcode" id="qricon"><icon class="uf uf-qrcode"/><div id="qrcode"><img src="'+generateQR+'"/></div></span>' 
         // "<a href='https://github.com/tinper-bee/" +
         //  +
         // "/edit/master/docs/api.md' class='pencil'  target='_blank' title='在github上编辑此页'><i class='uf uf-pencil-s' style='font-size: 20px;padding-left: 10px;'></i></a>" +
@@ -147,6 +149,9 @@ module.exports = {
 
     // let latestVersion = sidebar['更新日志']['version'];
 
+    
+
+
     await ctx.render('index', {
       sidebar: sidebar,
       docs: data,
@@ -156,7 +161,8 @@ module.exports = {
       rightMenus: rightMenus,
       changeLog: changeLog,
       newComponent: [], //有更新的组件
-      latestVersion: '1.0.0'
+      latestVersion: '1.0.0',
+      iframeUrl:iframeUrl
     });
   }
 }
