@@ -121,7 +121,7 @@ module.exports = {
         data.match(/#? \w+/g)[0] :
         "";
 
-      let iframeUrl = 'http://mobiledemo.dev.app.yyuap.com/'+component;
+      iframeUrl = 'http://mobiledemo.dev.app.yyuap.com/#/'+component;
       let generateQR = await QRCode.toDataURL(iframeUrl);
 
       data = data.replace(
