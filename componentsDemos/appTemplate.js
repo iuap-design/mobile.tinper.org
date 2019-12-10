@@ -20,6 +20,8 @@ class Routers extends Component{
         return (
             <Router path="/" >
                 <div className='demo-sidebar'>
+                    <App/>
+                    <Route exact path="/" component='首页' />
                     replaceRoute
                 </div>
             </Router>
@@ -31,4 +33,4 @@ class Routers extends Component{
 
 
 
-replaceRender
+ReactDOM.render(<Routers/>, document.getElementById('mobileDemo'));

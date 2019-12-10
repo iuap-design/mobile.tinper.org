@@ -77,8 +77,8 @@ class Routers extends Component{
             <Router path="/" >
                 <div className='demo-sidebar'>
                     <App/>
-<Route exact path="/" component="首页" />
-<Route exact path="/Accordion" component={Accordion} /> 
+                    <Route exact path="/" component='首页' />
+                    <Route exact path="/Accordion" component={Accordion} /> 
 <Route exact path="/Badge" component={Badge} /> 
 <Route exact path="/Button" component={Button} /> 
 <Route exact path="/Calendar" component={Calendar} /> 

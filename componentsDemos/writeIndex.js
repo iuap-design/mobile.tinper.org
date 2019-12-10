@@ -7,14 +7,8 @@ const componentsPath = path.join(__dirname, `./src/`);
 const demoJsReg = /Demo[\w\W]+\.js/;
 const demoLessReg = /Demo[\w\W]+\.less/;
 
-let mode = process.env.NODE_ENV;
-
-console.log('——————————mode:'+mode)
-
-let replaceRender = mode=='server'?"ReactDOM.render(<Routers/>, document.getElementById('testPhone'));":"ReactDOM.render(<Routers/>, document.getElementById('mobileDemo'));";
 let replaceLink = [];
-let replaceRoute = ['<Route exact path="/" component="首页" />'];
-if(mode!='server')replaceRoute = ['<App/>','<Route exact path="/" component="首页" />'];
+let replaceRoute = [];
 let replaceImportant = [];
 
 let components = fs.readdirSync(componentsPath);
@@ -38,7 +32,7 @@ components.forEach(component=>{
         template=template.replace('importDemoJs',demoJs.join('\n'))
         .replace('importDemoless',demoLess.join('\n'))
         .replace('importDemoJsDom',demoJsDom.join('\n'))
-        .replace('replaceENV',mode=='development'||mode=='server'?"export default Exmple;":"ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));")
+        .replace('replaceENV',process.env.NODE_ENV=='development'?"export default Exmple;":"ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));")
         fs.writeFileSync(componentsPath+`${component}/index.js`,template)
         console.log(`✌️ 😀 ✌️ ${component} index.js 文件生成成功`)
         replaceImportant.push('import '+component+' from "./'+component+'/index";');
@@ -51,9 +45,6 @@ components.forEach(component=>{
 
 //2、生成app.js
 let appJs = fs.readFileSync(path.join(__dirname,'./appTemplate.js'),'utf-8');
-appJs = appJs.replace('replaceImportant',replaceImportant.join('\n'))
-.replace('replaceLink',replaceLink.join('\n'))
-.replace('replaceRoute',replaceRoute.join('\n'))
-.replace('replaceRender',replaceRender);
+appJs = appJs.replace('replaceImportant',replaceImportant.join('\n')).replace('replaceLink',replaceLink.join('\n')).replace('replaceRoute',replaceRoute.join('\n'));
 fs.writeFileSync(path.join(__dirname,'./src/app.js'),appJs);
 console.log(`✌️ 😀 ✌️ app.js 文件生成成功`)
