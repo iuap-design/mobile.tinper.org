@@ -15,7 +15,7 @@ class Exmple extends React.Component {
       <div className='demo'>
         <div className='demo-item'><div className='demo-item-title'> 基础示例</div><Demo1/></div>
 <div className='demo-item'><div className='demo-item-title'> 子元素数量变化</div><Demo2/></div>
-<div className='demo-item'><div className='demo-item-title'> 子元素数量变化</div><Demo3/></div>
+<div className='demo-item'><div className='demo-item-title'> 带间距</div><Demo3/></div>
 <div className='demo-item'><div className='demo-item-title'> 带间距</div><Demo4/></div>
 <div className='demo-item'><div className='demo-item-title'> 竖向</div><Demo5/></div>
 <div className='demo-item'><div className='demo-item-title'> 抽奖</div><Demo6/></div>
@@ -24,4 +24,4 @@ class Exmple extends React.Component {
   }
 }
 
-export default Exmple;
+ReactDOM.render(<Exmple/>, document.getElementById('mobileDemo'));

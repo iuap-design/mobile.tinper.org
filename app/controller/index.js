@@ -62,19 +62,7 @@ Object.keys(sidebar).forEach(item => {
   }
 })
 
-async function getTinperThemeServer(url,option){
-  return new Promise((resolve, reject)=> {
-      fetch('http://tinper-bee-theme-server.online.app.yyuap.com/server/'+url,option)
-      .then(res => res.json())
-      .then(json => {
-        resolve(json);
-      },
-      err => {
-        console.log(err);
-        reject(null);
-      });
-  })
-}
+
 
 
 

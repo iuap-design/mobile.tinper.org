@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { HashRouter as Router, Link, Route } from 'react-router-dom';
 replaceImportant
 import 'antd-mobile/dist/antd-mobile.css'
 import './app.less'
@@ -20,8 +20,6 @@ class Routers extends Component{
         return (
             <Router path="/" >
                 <div className='demo-sidebar'>
-                    <App/>
-                    <Route exact path="/" component='首页' />
                     replaceRoute
                 </div>
             </Router>
@@ -33,5 +31,4 @@ class Routers extends Component{
 
 
 
-
-ReactDOM.render(<Routers/>, document.getElementById('mobileDemo'));
+replaceRender

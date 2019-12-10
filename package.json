@@ -4,7 +4,9 @@
   "description": "bee.tinper.org",
   "main": "server/index.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node app/app.js",
+    "dev": "cd componentsDemos/ && npm run server",
+    "server":"concurrently \"npm start\" \"npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "@libraui/antd-mobile": "0.0.3",
     "ali-oss": "^6.2.1",
     "axios": "^0.18.0",
+    "concurrently": "^5.0.1",
     "download": "^7.1.0",
     "download-git-repo": "^1.1.0",
     "fs-extra": "^7.0.1",
