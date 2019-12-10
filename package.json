@@ -4,6 +4,7 @@
   "description": "bee.tinper.org",
   "main": "server/index.js",
   "scripts": {
+    "getDemos":"node app/utils/downLoadDemos.js",
     "start": "node app/app.js"
   },
   "repository": {
