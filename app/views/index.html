@@ -36,8 +36,7 @@
 <script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react-dom.development.js"></script>
 <script src="//design.yonyoucloud.com/static/prop-types/15.6.0/prop-types.min.js"></script>
 <script src="//design.yonyoucloud.com/static/gumshoe/gumshoe.polyfills.min.js"></script>
-
-<body>
+<body> 
     <div class="navbar" id="navbar">
         <% include navbar.html %>
     </div>
@@ -62,14 +61,23 @@
             <div class="footer-out">
                 <% include footer.html %>
             </div>
+
+
+<% for(var i=0;i<demosArray.length;i++) { %>
+        <div class="code-max">
+            <i class="uf uf-close"></i>
+            <pre>
+                <code>
+                        <%= demosArray[i]%>
+                </code>
+            </pre>
+        </div>
+<% } %>
+<div class="code-max-mask" id="codeMask"></div>
+
+
 </body>
 <script type="text/javascript" src="//design.yonyoucloud.com/static/docSearch/docsearch.min.js"></script>
-<% if(active=='theme'){ %>
-<script type="text/javascript" src="./theme/runtime.js"></script>
-<script type="text/javascript" src="./theme/vendor.js"></script>
-<script type="text/javascript" src="./theme/app.js"></script>
-<script type="text/javascript" src="./theme/home.js"></script>
-<% } %>
 <script>
     //解决:hover伪类在移动端二次点击的问题
     document.body.addEventListener('touchstart', function () { });
@@ -170,8 +178,6 @@
         mask.removeEventListener('touchmove', handle, false);
     }, false);
 </script>
-
-
 <!-- 控制点击“查看源码”时，浮层下方的页面不能滚动，浮层消失后，页面正常滚动。 -->
 <script>
     var handle = function (event) {
@@ -230,8 +236,6 @@
             }, 50);
         }
 
-
-
         //鼠标划过显示二维码
         let qricon = document.getElementById('qricon');
         let qrcode = document.getElementById('qrcode');
@@ -241,7 +245,33 @@
         qricon.onmouseleave = function () {
             qrcode.style.display = 'none';
         }
+
+        //最大化
+        let maxs = document.querySelectorAll('.uf-maxmize');
+        let codeMaxs = document.querySelectorAll('.code-max');
+        let codeMask = document.getElementById('codeMask');
+        let codeClose = document.querySelectorAll('.code-max .uf-close');
+        maxs.forEach((item,index)=>{
+            item.onclick=function(){
+                codeMask.style.display='block';
+                codeMaxs[index].style.display = 'block';
+                codeMaxs[index].style.top = window.scrollY+80+'px';
+            }
+        })
+        function closeAll(){
+            codeMask.style.display = 'none';
+            codeMaxs.forEach(item=>{
+                item.style.display = 'none';
+            })
+        }
+        codeMask.onclick=closeAll;
+        codeClose.forEach(it=>{
+            it.onclick=closeAll
+        })
     }
 </script>
-
+<script src="http://design.yonyoucloud.com/static/clipboard/2.0.4/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.uf-copy');
+</script>
 </html>

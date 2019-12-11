@@ -392,11 +392,12 @@ select::-ms-expand {
 .docs .doc-content .demo-container .mobile-demo-left .demo-item{
     background: #FAFAFA;
     margin-bottom: 30px;
-    max-height: 300px;
+    max-height: 400px;
     overflow: auto;
 }
-.docs .doc-content .demo-container .mobile-demo-left .demo-item pre{
-    
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .code-area{
+    height: 350px;
+    overflow: auto;
 }
 .docs .doc-content .demo-container .mobile-demo-left .demo-item .demo-des{
     background: #fff;
@@ -409,12 +410,28 @@ select::-ms-expand {
 }
 .docs .doc-content .demo-container .mobile-demo-left .demo-item .demo-des .demo-des-des{
     font-size: 14px;
-    font-weight: 500;
+    font-weight: normal;
+    font-style: italic;
 }
 .docs .doc-content .demo-container .mobile-demo-left .demo-item .mobile-demo-left-title{
     padding-left: 20px;
-    font-size: 16px;
-    padding-top: 20px;
+    font-size: 14px;
+    padding-top: 10px;
+    font-weight: bold;
+    color: rgba(66,66,66,1);
+    position: relative;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .mobile-demo-left-title i.uf{
+    position: absolute;
+    right: 20px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .mobile-demo-left-title i.uf:hover{
+    color: #e14c46;
+}
+.docs .doc-content .demo-container .mobile-demo-left .demo-item .mobile-demo-left-title i.uf-maxmize{
+    right: 50px;
 }
 #qricon{
     margin-left: 10px;
@@ -435,4 +452,37 @@ select::-ms-expand {
 }
 #mobileDemo iframe body{
     background: #f5f5f9!important;
+}
+
+.code-max-mask{
+    background: #000;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    position: fixed;
+    text-align: center;
+    overflow: auto;
+    display: none;
+}
+.code-max{
+    background: #FAFAFA;
+    opacity: 1;
+    max-height: 90%;
+    width: 50%;
+    left: 25%;
+    text-align: left;
+    overflow: auto;
+    position: absolute;
+    top: 5%;
+    z-index: 10000;
+    display: none;
+}
+.code-max .uf-close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }

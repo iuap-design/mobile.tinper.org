@@ -79,7 +79,7 @@ module.exports = {
     let isComponentFlag = false; //是否是组件
     let rightMenus = {}; //右侧菜单
     let changeLog = []; //组件更新日志
-    let demoStr = '',iframeUrl='';
+    let demoStr = '',iframeUrl='',demosArray=[];
     if (docRouter.indexOf(component)==-1) {
       isComponentFlag=true;
       filePath = path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/doc.md`);
@@ -101,13 +101,19 @@ module.exports = {
               let title = code.match(/@title(.{0,})/)?code.match(/@title(.{0,})/)[1]:'';//标题
               let description = code.match(/@description(.{0,})/)?code.match(/@description(.{0,})/)[1]:'';//描述
               code = code.replace('//@title'+title,'').replace('//@description'+description,'')
-              demoStr+='<div class="demo-des"><div class="demo-des-title">'+title+'</div><div class="demo-des-des">'+description+'</div></div><div class="mobile-demo-left-title">js代码如下</div>'
-              +'<pre><code class="hljs javascript">'+jsxRender(code)+'</code></pre>';
+              demoStr+='<div class="demo-des"><div class="demo-des-title">'+title+
+              '</div><div class="demo-des-des">'+description+
+              '</div></div><div class="code-area"><div class="mobile-demo-left-title">js代码如下<i class="uf uf-maxmize"></i><i class="uf uf-copy" title="点击复制" data-clipboard-text="'+jsxRender(code)+'"></i></div>'
+                +'<pre><code class="hljs javascript">'+jsxRender(code)+'</code></pre>';
               if(less){
-                demoStr+='<div class="mobile-demo-left-title">less代码如下</div>'
-                +'<pre><code class="hljs javascript">'+less+'</code></pre>'
+                demoStr+='<div class="mobile-demo-left-title">less代码如下 <i class="uf uf-copy" title="点击复制代码" data-clipboard-text="'+less+'"></i></div>'
+                  +'<pre><code class="hljs javascript">'+less+'</code></pre>'
+                demosArray.push(code+less)
+              }else{
+                demosArray.push(code)
               }
-              demoStr += '</div>'
+              demoStr += '</div></div>'
+              
           }
           
       })
@@ -162,7 +168,8 @@ module.exports = {
       changeLog: changeLog,
       newComponent: [], //有更新的组件
       latestVersion: '1.0.0',
-      iframeUrl:iframeUrl
+      iframeUrl:iframeUrl,
+      demosArray:demosArray
     });
   }
 }
