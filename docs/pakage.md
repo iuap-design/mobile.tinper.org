@@ -12,7 +12,6 @@ import Button from 'tinper-bee/lib/Button'; // 单独使用组件，按需使用
 ```
 
 
-
 ## 安装与配置
 
 通过`npm`下载安装插件

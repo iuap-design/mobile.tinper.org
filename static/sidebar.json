@@ -3,65 +3,14 @@
         "version": "0.1.3",
         "component": "summarize",
         "menus": {
-            "特性": {}
+            
         }
     },
     "快速开始": {
         "version": "0.1.3",
         "component": "quickStart",
         "menus": {
-            "一、安装 tinper-bee": {},
-            "二、项目中使用 tinper-bee": {},
-            "三、使用CDN": {},
-            "四、单个使用个别组件": {},
-            "五、注意事项": {}
-        }
-    },
-    "项目实战": {
-        "version": "0.1.3",
-        "component": "project",
-        "menus": {
-            "安装cli工具": {},
-            "快速初始化": {
-                "children": [
-                    "创建项目",
-                    "依赖安装",
-                    "运行",
-                    "如何访问",
-                    ""
-                ]
-            },
-            "安装组件库": {},
-            "使用组件库": {
-                "children": [
-                    "创建微应用",
-                    "修改结构"
-                ]
-            }
-        }
-    },
-    "使用注意": {
-        "version": "0.1.3",
-        "component": "attention",
-        "menus": {
-            "需要单独引入的组件": {},
-            "图标字体库私有化": {
-                "children": [
-                    "使用本地样式文件",
-                    "使用CDN资源"
-                ]
-            }
-        }
-    },
-    "参与贡献": {
-        "version": "0.1.3",
-        "component": "participation",
-        "menus": {
-            "issue 的提交": {},
-            "组件库分支管理": {},
-            "如何提交 pull request": {},
-            "如何开发一个标准的组件": {},
-            "问题反馈": {}
+            
         }
     },
     "更新日志": {
@@ -189,90 +138,6 @@
                 "长列表 ListView": {
                     "version": "0.1.3",
                     "component": "ListView"
-                },
-                "结果页 Result": {
-                    "version": "0.1.3",
-                    "component": "Result"
-                },
-                "通告栏 NoticeBar": {
-                    "version": "0.1.3",
-                    "component": "NoticeBar"
-                },
-                "步骤条 Steps": {
-                    "version": "0.1.3",
-                    "component": "Steps"
-                },
-                "分段 SegmentedControl": {
-                    "version": "0.1.3",
-                    "component": "SegmentedControl"
-                },
-                "标签页 Tabs": {
-                    "version": "0.1.3",
-                    "component": "Tabs"
-                },
-                "分页 Pagination": {
-                    "version": "0.1.3",
-                    "component": "Pagination"
-                }
-               
-                
-            },
-            "导航 Navigation": {
-                "抽屉 Drawer": {
-                    "version": "0.1.3",
-                    "component": "Drawer"
-                },
-                "菜单 Menu": {
-                    "version": "0.1.3",
-                    "component": "Menu"
-                },
-                "导航栏 NavBar": {
-                    "version": "0.1.3",
-                    "component": "NavBar"
-                },
-                "标签栏 TabBar": {
-                    "version": "0.1.3",
-                    "component": "TabBar"
-                },
-                "动作面板 ActionSheet": {
-                    "version": "0.1.3",
-                    "component": "ActionSheet"
-                }
-            },
-            "反馈 Feedback": {
-                "气泡 Popover": {
-                    "version": "0.1.3",
-                    "component": "Popover"
-                },
-                "活动指示器 ActivityIndicator": {
-                    "version": "0.1.3",
-                    "component": "ActivityIndicator"
-                },
-                "对话框 Modal": {
-                    "version": "0.1.3",
-                    "component": "Modal"
-                },
-                "进度条 Progress": {
-                    "version": "0.1.3",
-                    "component": "Progress"
-                },
-                "轻提示 Toast": {
-                    "version": "0.1.3",
-                    "component": "Toast"
-                },
-                "拉动刷新 PullToRefresh": {
-                    "version": "0.1.3",
-                    "component": "PullToRefresh"
-                },
-                "滑动操作 SwipeAction": {
-                    "version": "0.1.3",
-                    "component": "SwipeAction"
-                }
-            },
-            "其它 Other":{
-                "国际化 LocaleProvider": {
-                    "version": "0.1.3",
-                    "component": "LocaleProvider"
                 }
             }
         }
