@@ -39,6 +39,9 @@ body{
     position: relative;
     z-index: 2;
 }
+.footer-out.margin-right{
+    margin-right: 416px;
+}
 .u-row{
     margin: 0!important;
 }

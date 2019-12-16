@@ -48,7 +48,6 @@ export default Example；
 
 ## 三、使用CDN
 
-[版本号查阅](http://mobile.tinper.org/antd-mobile/changelog)
 
 - css样式
 

@@ -58,9 +58,16 @@
                     <% include docs.html %>
                 </div>
             </div>
-            <div class="footer-out">
-                <% include footer.html %>
-            </div>
+            <% if(isComponent){ %>
+                <div class="footer-out margin-right">
+                    <% include footer.html %>
+                </div>
+            <% } else { %>
+                <div class="footer-out">
+                    <% include footer.html %>
+                </div>
+            <% } %>
+            
 
 
 <% for(var i=0;i<demosArray.length;i++) { %>
