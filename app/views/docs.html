@@ -1,4 +1,9 @@
-<div class="doc-content">
+<% if(isComponent){ %>
+    <div class="doc-content margin-right">
+<% } else { %>
+    <div class="doc-content">
+<% } %>
+
     <%- docs %>
     <div id="theme-app"></div>
     
