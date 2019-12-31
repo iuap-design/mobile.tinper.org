@@ -2,16 +2,12 @@
     "概述": {
         "version": "0.1.3",
         "component": "summarize",
-        "menus": {
-            
-        }
+        "menus": {}
     },
     "快速开始": {
         "version": "0.1.3",
         "component": "quickStart",
-        "menus": {
-            
-        }
+        "menus": {}
     },
     "更新日志": {
         "version": "2.3.0",
@@ -35,16 +31,46 @@
                     "component": "WhiteSpace"
                 }
             },
+            "导航 Navigation": {
+                "抽屉 Drawer": {
+                    "version": "0.1.3",
+                    "component": "Drawer"
+                },
+                "菜单 Menu": {
+                    "version": "0.1.3",
+                    "component": "Menu"
+                },
+                "导航栏 NavBar": {
+                    "version": "0.1.3",
+                    "component": "NavBar"
+                },
+                "气泡 Popover": {
+                    "version": "0.1.3",
+                    "component": "Popover"
+                },
+                "分页器 Pagination": {
+                    "version": "0.1.3",
+                    "component": "Pagination"
+                },
+                "标签页 Tabs": {
+                    "version": "0.1.3",
+                    "component": "Tabs"
+                },
+                "标签栏 TabBar": {
+                    "version": "0.1.3",
+                    "component": "TabBar"
+                }
+            },
             "基础 General": {
                 "按钮 Button": {
                     "version": "0.1.3",
                     "component": "Button"
                 },
-                "复选框 Checkbox":{
+                "复选框 Checkbox": {
                     "version": "0.1.3",
                     "component": "Checkbox"
                 },
-                "日历 Calendar ":{
+                "日历 Calendar ": {
                     "version": "0.1.3",
                     "component": "Calendar"
                 },
@@ -74,7 +100,7 @@
                 },
                 "单选器 Radio": {
                     "version": "0.1.3",
-                    "component": "Radio" 
+                    "component": "Radio"
                 },
                 "区域选择 Range": {
                     "version": "0.1.3",
@@ -139,7 +165,7 @@
                     "component": "Tag"
                 }
             },
-            "视图 View": {               
+            "视图 View": {
                 "长列表 ListView": {
                     "version": "0.1.3",
                     "component": "ListView"
