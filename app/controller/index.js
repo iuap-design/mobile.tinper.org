@@ -152,6 +152,7 @@ module.exports = {
       .replace(/\<table/gi, '<div class="table-container">\n<table')
       .replace(/<\/table>/gi, "</table>\n</div>\n")
       .replace('&&&&', demoStr)
+      .replace(/antd\-mobile/gi,'@libraui/base-mobile') //替换
 
     // let latestVersion = sidebar['更新日志']['version'];
 
