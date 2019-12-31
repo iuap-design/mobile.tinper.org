@@ -1,12 +1,12 @@
 import React from "react";
-import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { SearchBar, Button, WhiteSpace, WingBlank } from '@libraui/base-mobile';
 
 class SearchBarExample extends React.Component {
   state = {
     value: '美食',
   };
   componentDidMount() {
-    this.autoFocusInst.focus();
+    // this.autoFocusInst.focus();
   }
   onChange= (value) => {
     this.setState({ value });
@@ -15,7 +15,7 @@ class SearchBarExample extends React.Component {
     this.setState({ value: '' });
   };
   handleClick = () => {
-    this.manualFocusInst.focus();
+    // this.manualFocusInst.focus();
   }
   render() {
     return (<div>
