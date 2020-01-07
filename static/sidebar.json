@@ -165,10 +165,20 @@
                     "component": "Tag"
                 }
             },
+            "反馈 Feedback": {
+                "对话框 Modal": {
+                    "version": "0.1.3",
+                    "component": "Modal"
+                }
+            },
             "视图 View": {
                 "长列表 ListView": {
                     "version": "0.1.3",
                     "component": "ListView"
+                },
+                "结果页 Result": {
+                    "version": "0.1.3",
+                    "component": "Result"
                 }
             }
         }

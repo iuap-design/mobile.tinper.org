@@ -15,8 +15,10 @@
     <link rel="icon" href="//design.yonyoucloud.com/static/tinper-bee/images/favicon.png" type="image/png"
         sizes="16x16">
     <link rel="stylesheet" href="//design.yonyoucloud.com/static/highlight/9.15.6/default.min.css">
-    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-bee/latest/assets/tinper-bee.css" rel="stylesheet" media="screen" />
-    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-mobile/antd-mobile/2.3.1/antd-mobile.css" rel="stylesheet" media="screen" />
+    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-bee/latest/assets/tinper-bee.css"
+        rel="stylesheet" media="screen" />
+    <link id="tinper-bee-csslink" href="//design.yonyoucloud.com/static/tinper-mobile/antd-mobile/2.3.1/antd-mobile.css"
+        rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="//design.yonyoucloud.com/static/docSearch/docsearch.min.css" />
     <link rel="stylesheet" href="./css/atom-one-dark.css" type="text/css" />
     <link rel="stylesheet" href="./css/layout.css" type="text/css" />
@@ -25,7 +27,7 @@
     <link rel="stylesheet" href="./css/docs.css" type="text/css" />
     <link rel="stylesheet" href="./css/demoPhone.css" type="text/css" />
     <link rel="stylesheet" href="./css/footer.css" type="text/css" />
-    
+
     <script type="text/javascript" src="//design.yonyoucloud.com/static/tinper-bee/js/yonyou-yyy.js"></script>
 </head>
 <script src="//design.yonyoucloud.com/static/highlight/9.15.6/highlight.min.js"></script>
@@ -36,7 +38,8 @@
 <script src="//design.yonyoucloud.com/static/react/16.8.4/umd/react-dom.development.js"></script>
 <script src="//design.yonyoucloud.com/static/prop-types/15.6.0/prop-types.min.js"></script>
 <script src="//design.yonyoucloud.com/static/gumshoe/gumshoe.polyfills.min.js"></script>
-<body> 
+
+<body>
     <div class="navbar" id="navbar">
         <% include navbar.html %>
     </div>
@@ -59,28 +62,28 @@
                 </div>
             </div>
             <% if(isComponent){ %>
-                <div class="footer-out margin-right">
-                    <% include footer.html %>
-                </div>
+            <div class="footer-out margin-right">
+                <% include footer.html %>
+            </div>
             <% } else { %>
-                <div class="footer-out">
-                    <% include footer.html %>
-                </div>
+            <div class="footer-out">
+                <% include footer.html %>
+            </div>
             <% } %>
-            
 
 
-<% for(var i=0;i<demosArray.length;i++) { %>
-        <div class="code-max">
-            <i class="uf uf-close"></i>
-            <pre>
+
+            <% for(var i=0;i<demosArray.length;i++) { %>
+            <div class="code-max">
+                <i class="uf uf-close"></i>
+                <pre>
                 <code>
                         <%= demosArray[i]%>
                 </code>
             </pre>
-        </div>
-<% } %>
-<div class="code-max-mask" id="codeMask"></div>
+            </div>
+            <% } %>
+            <div class="code-max-mask" id="codeMask"></div>
 
 
 </body>
@@ -246,11 +249,13 @@
         //鼠标划过显示二维码
         let qricon = document.getElementById('qricon');
         let qrcode = document.getElementById('qrcode');
-        qricon.onmouseenter = function () {
-            qrcode.style.display = 'block';
-        }
-        qricon.onmouseleave = function () {
-            qrcode.style.display = 'none';
+        if (qricon) {
+            qricon.onmouseenter = function () {
+                qrcode.style.display = 'block';
+            }
+            qricon.onmouseleave = function () {
+                qrcode.style.display = 'none';
+            }
         }
 
         //最大化
@@ -258,22 +263,22 @@
         let codeMaxs = document.querySelectorAll('.code-max');
         let codeMask = document.getElementById('codeMask');
         let codeClose = document.querySelectorAll('.code-max .uf-close');
-        maxs.forEach((item,index)=>{
-            item.onclick=function(){
-                codeMask.style.display='block';
+        maxs.forEach((item, index) => {
+            item.onclick = function () {
+                codeMask.style.display = 'block';
                 codeMaxs[index].style.display = 'block';
-                codeMaxs[index].style.top = window.scrollY+80+'px';
+                codeMaxs[index].style.top = window.scrollY + 80 + 'px';
             }
         })
-        function closeAll(){
+        function closeAll() {
             codeMask.style.display = 'none';
-            codeMaxs.forEach(item=>{
+            codeMaxs.forEach(item => {
                 item.style.display = 'none';
             })
         }
-        codeMask.onclick=closeAll;
-        codeClose.forEach(it=>{
-            it.onclick=closeAll
+        codeMask.onclick = closeAll;
+        codeClose.forEach(it => {
+            it.onclick = closeAll
         })
     }
 </script>
@@ -281,4 +286,5 @@
 <script>
     var clipboard = new ClipboardJS('.uf-copy');
 </script>
+
 </html>
