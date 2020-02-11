@@ -87,7 +87,6 @@ module.exports = {
       //1、获得demo 个数
       let demos = fs.readdirSync(path.join(__dirname, `../../componentsDemos/ucf-apps/demos/src/${component}/demo/`));
       let demoReg = /Demo[\w\W]+\.js/;
-      
       demos.forEach((item)=>{
           if(demoReg.test(item)){
               demoStr += '<div class="demo-item">'
@@ -145,7 +144,6 @@ module.exports = {
       filePath = path.join(__dirname, `../../docs/${component}.md`);
       data = await fs.readFileSync(filePath, 'utf-8');
     }
-
     data = marked(data);
 
     data = data

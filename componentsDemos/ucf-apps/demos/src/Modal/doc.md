@@ -5,18 +5,19 @@
 
 ## 如何使用
 ```
-import { Modal } from '@libraui/base-mobile';
+import { Modal } from 'tinper-libraui';
 
 ```
 
 ## 代码演示
 
+
 ## API
 
-Modal
+### Modal
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
+| 属性 | 说明 | 类型 | 默认值 |
+|----|-----|------|------|
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 | visible | 对话框是否可见 | Boolean | false |
 | closable | 是否显示关闭按钮 | Boolean | false |
@@ -33,10 +34,10 @@ Modal
 | className  | 手动设置 Modal 的 className | String | |
 | wrapClassName  | 手动设置 Modal wrap 的 className | String | |
 
-Modal.alert(title, message, actions?, platform?)
+### Modal.alert(title, message, actions?, platform?)
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
+| 属性 | 说明 | 类型 | 默认值 |
+|----|-----|------|------|
 | title | 标题  | String 或 React.Element | 无  |
 | message  | 提示信息  | String 或 React.Element  | 无  |
 | actions | 按钮组, [{text, onPress, style}] | Array | 无  |
@@ -44,10 +45,10 @@ Modal.alert(title, message, actions?, platform?)
 
 `Modal.alert(title, message, actions?, platform?).close()` 可以在外部关闭 Alert
 
-Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?)
+### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?)
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
+| 属性 | 说明 | 类型 | 默认值 |
+|----|-----|------|------|
 | title | 标题  | String 或 React.Element | 无  |
 | message  | 提示信息  | String 或 React.Element  | 无  |
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数  | Array or Function | 无  |
@@ -58,10 +59,10 @@ Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholde
 
 `Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?).close()` 可以在外部关闭 prompt`
 
-Modal.operation(actions?, platform?)
+### Modal.operation(actions?, platform?)
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
+| 属性 | 说明 | 类型 | 默认值 |
+|----|-----|------|------|
 | actions | 按钮组, [{text, onPress, style}] | Array | 无  |
 | platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 

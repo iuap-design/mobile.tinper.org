@@ -95,3 +95,6 @@ class MultiMenuExample extends React.Component {
 }
 
 export default MultiMenuExample
+
+//@title SingleMulti
+//@description SingleMulti

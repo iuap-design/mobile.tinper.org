@@ -149,3 +149,5 @@ class MultiMenuExample extends React.Component {
 }
 export default MultiMenuExample
 
+//@title MultiSelect
+//@description MultiSelect
