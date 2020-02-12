@@ -17,17 +17,26 @@ class App extends React.Component {
   render() {
     return (
       <WingBlank>
-        <Carousel
-          autoplay={false}
+        <Carousel className="space-carousel"
+          frameOverflow="visible"
+          cellSpacing={10}
+          slideWidth={0.8}
+          autoplay
           infinite
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => console.log('slide to', index)}
+          afterChange={index => this.setState({ slideIndex: index })}
         >
-          {this.state.data.map(val => (
+          {this.state.data.map((val, index) => (
             <a
               key={val}
-              href="http://www.tinper.org/"
-              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+              href="http://www.alipay.com"
+              style={{
+                display: 'block',
+                position: 'relative',
+                top: this.state.slideIndex === index ? -10 : 0,
+                height: this.state.imgHeight,
+                boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
+              }}
             >
               <img
                 src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
@@ -49,5 +58,4 @@ class App extends React.Component {
 
 export default App;
 
-//@title 基础示例
-//@description 基本使用方式
+//@title 带间距
