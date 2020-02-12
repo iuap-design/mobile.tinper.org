@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Demo1 from './demo/Demo2.js'
-import Demo2 from './demo/Demo1.js'
+import Demo1 from './demo/Demo1.js'
+import Demo2 from './demo/Demo2.js'
 import Demo3 from './demo/Demo3.js'
-import './demo/demo.less'
+
 
 
 class Exmple extends React.Component {
@@ -11,8 +11,8 @@ class Exmple extends React.Component {
     return (
       <div className='demo'>
         <div className='demo-item'><div className='demo-item-title'> 基本使用</div><Demo1/></div>
-        <div className='demo-item'><div className='demo-item-title'> 金额键盘</div><Demo2/></div>
-        <div className='demo-item'><div className='demo-item-title'> 错误验证</div><Demo3/></div>
+<div className='demo-item'><div className='demo-item-title'> 金额键盘</div><Demo2/></div>
+<div className='demo-item'><div className='demo-item-title'> 错误验证</div><Demo3/></div>
       </div>
     );
   }
